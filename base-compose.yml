@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  base:
+    build:
+        context: .
+        args:
+            - _GRADLE_ZIP:${_GRADLE_ZIP}
+            - _HUB_CENTRAL_WAR:${_HUB_CENTRAL_WAR}
+            - _MLCP_ZIP:${_MLCP_ZIP}
+        dockerfile: ./tools/Dockerfile
+    image: centos:latest
+    container_name: tools
+    networks:
+        - default
+    restart: on-failure
+    ports:
+      - "28080:8080"
+      - "3000:3000"
+      - "9003:9003"    
+    entrypoint: |
+      /bin/bash -c "
+        /tmp/init.sh
+        tail -f /dev/null
+      "
+networks:
+  default:
+    external:
+      name: ${_NETWORK_NAME}

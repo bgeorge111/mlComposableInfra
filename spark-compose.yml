@@ -1,0 +1,74 @@
+version: '3.7'
+services:
+  spark-master:
+    build:
+        context: .
+        args:
+           - _SPARK_ML_CONNECTOR_JAR:${_SPARK_ML_CONNECTOR_JAR}
+           - _SPARK_CONFIG_DEFAULTS:${_SPARK_CONFIG_DEFAULTS}
+           - _SPARK_PROJECT_JAR:${_SPARK_PROJECT_JAR}
+        dockerfile: ./spark/Dockerfile
+    image: docker.io/bitnami/spark:2
+    container_name: spark_master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_PUBLIC_DNS=localhost
+    ports:
+      - '38080:8080'
+      - '36066:6066'
+    networks:
+        - default      
+  spark-worker-1:
+    build:
+        context: .
+        args:
+           - _SPARK_ML_CONNECTOR_JAR:${_SPARK_ML_CONNECTOR_JAR}
+           - _SPARK_CONFIG_DEFAULTS:${_SPARK_CONFIG_DEFAULTS}
+           - _SPARK_PROJECT_JAR:${_SPARK_PROJECT_JAR}        
+        dockerfile: ./spark/Dockerfile  
+    image: docker.io/bitnami/spark:2
+    container_name: spark_worker_1
+    ports:
+      - '48081:48081'
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_PUBLIC_DNS=localhost 
+      - SPARK_WORKER_WEBUI_PORT=48081
+  spark-worker-2:
+    build:
+        context: .
+        args:
+           - _SPARK_ML_CONNECTOR_JAR:${_SPARK_ML_CONNECTOR_JAR}
+           - _SPARK_CONFIG_DEFAULTS:${_SPARK_CONFIG_DEFAULTS}
+           - _SPARK_PROJECT_JAR:${_SPARK_PROJECT_JAR}        
+        dockerfile: ./spark/Dockerfile  
+    image: docker.io/bitnami/spark:2
+    container_name: spark_worker_2
+    ports:
+      - '58081:58081'      
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_PUBLIC_DNS=localhost
+      - SPARK_WORKER_WEBUI_PORT=58081     
+networks:
+  default:
+    external:
+      name: ${_NETWORK_NAME}

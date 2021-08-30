@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  nifi:
+    build:
+        context: .
+        args:
+            - _NIFI_ML_CONNECTOR_JAR:${_NIFI_ML_CONNECTOR_JAR}
+            - _NIFI_ML_SERVICES_JAR:${_NIFI_ML_SERVICES_JAR}
+        dockerfile: ./nifi/Dockerfile
+    image: apache/nifi:latest
+    container_name: nifi
+    networks:
+        - default
+    restart: unless-stopped
+    environment:
+        - SINGLE_USER_CREDENTIALS_USERNAME=${_NIFI_ADMIN_USER}
+        - SINGLE_USER_CREDENTIALS_PASSWORD=${_NIFI_ADMIN_PASSWORD}
+    ports:
+      # HTTP
+      - 18080:8080/tcp
+      # HTTPS
+      - 8443:8443/tcp
+      # Remote Input Socket
+      - 10000:10000/tcp
+      # JVM Debugger
+      - 18000:8000/tcp
+networks:
+  default:
+    external:
+      name: ${_NETWORK_NAME}

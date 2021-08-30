@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+    rabbit:
+        build:
+            context: .
+            args:
+                - _PLUGINS_FILE:${_PLUGINS_FILE}
+                - _DEFINITIONS_FILE:${_DEFINITIONS_FILE}
+            dockerfile: ./rabbitmq/Dockerfile
+        image: rabbitmq:3.8-management
+        container_name: rabbitmq
+        restart: on-failure
+        networks:
+            - default
+        environment:
+          RABBITMQ_DEFAULT_USER: guest
+          RABBITMQ_DEFAULT_PASS: guest
+        ports:
+          - "15671:15671"
+          - "8080:15672"
+          - "5672:5672"
+        
+networks:
+  default:
+    external:
+      name: ${_NETWORK_NAME}

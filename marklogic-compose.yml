@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  marklogic1:
+    image: ${_ML_IMAGE}
+    container_name: marklogic1
+    networks:
+        - default
+    environment:
+        MARKLOGIC_INIT: 1
+        MARKLOGIC_ADMIN_USERNAME: ${_ML_ADMIN_USERNAME}
+        MARKLOGIC_ADMIN_PASSWORD: ${_ML_ADMIN_PASSWORD}
+    ports:
+      - 8000-8002:8000-8002/tcp
+      - 8010-8015:8010-8015/tcp
+networks:
+  default:
+    external:
+      name: ${_NETWORK_NAME}
