@@ -1,0 +1,12 @@
+plugins {
+    // Applies the Gradle properties plugin, which allows for different Gradle property values to be configured for
+    // different environments. Each properties file has a filename of "gradle-${environmentName}.properties", and an
+    // environment can be specified when running a Gradle task via e.g. "-PenvironmentName=prod" .
+    // For more information, see https://github.com/stevesaliman/gradle-properties-plugin .
+    id 'net.saliman.properties' version '1.5.1'
+
+    // Applies the Data Hub Gradle plugin, which extends ml-gradle with behavior specific to Data Hub.
+    // For more information on this plugin, see https://docs.marklogic.com/datahub/tools/gradle/dhf-gradle-plugin.html .
+    // For more information on ml-gradle, see https://github.com/marklogic-community/ml-gradle .
+    id 'com.marklogic.ml-data-hub' version '5.5.1'
+}

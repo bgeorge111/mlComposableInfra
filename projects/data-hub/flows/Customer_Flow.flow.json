@@ -1,0 +1,28 @@
+{
+  "name": "Customer_Flow",
+  "steps": {
+    "1": {
+      "stepId": "Ingest_Customer_CSV-ingestion"
+    },
+    "2": {
+      "stepId": "Map_CSV_Customer-mapping"
+    },
+    "3": {
+      "stepId": "Map_Nifi_Customer-mapping"
+    },
+    "4": {
+      "stepId": "Map_Kafka_Customer-mapping"
+    },
+    "5": {
+      "stepId": "Map_RDBMS_Customer-mapping"
+    },
+    "6": {
+      "stepId": "MatchCustomer-matching"
+    },
+    "7": {
+      "stepId": "MergeCustomers-merging"
+    }
+  },
+  "description": "MapCSVCustomer",
+  "lastUpdated": "2021-08-18T01:42:27.328603Z"
+}

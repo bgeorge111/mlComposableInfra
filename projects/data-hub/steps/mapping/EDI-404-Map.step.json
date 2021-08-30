@@ -1,0 +1,89 @@
+{
+  "collections": [
+    "EDI-404-Map",
+    "Shipment"
+  ],
+  "additionalCollections": [ ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": 100,
+  "validateEntity": "doNotValidate",
+  "targetFormat": "JSON",
+  "attachSourceDocument": false,
+  "name": "EDI-404-Map",
+  "targetEntityType": "http://example.org/Shipment-1.0.0/Shipment",
+  "description": "Map EDI 404",
+  "collection": "edi-404",
+  "selectedSource": "collection",
+  "sourceQuery": "cts.collectionQuery(['edi-404'])",
+  "targetDatabase": "data-hub-FINAL",
+  "headers": { },
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "sourceDatabase": "data-hub-STAGING",
+  "stepDefinitionName": "entity-services-mapping",
+  "stepDefinitionType": "mapping",
+  "stepId": "EDI-404-Map-mapping",
+  "acceptsBatch": true,
+  "lastUpdated": "2021-08-19T03:30:08.536623Z",
+  "properties": {
+    "ExtendedReferences": {
+      "sourcedFrom": "//*:edi-document/*:segments/*:segment[normalize-space(*:segment-identifier/text())='N9']/*:fields",
+      "properties": {
+        "refrenceIdentificationQualifier": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=1])"
+        },
+        "refrenceIdentification": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=2])"
+        },
+        "documentPreparationDate": {
+          "sourcedFrom": "concat(normalize-space(*:field[@*:index=4]),normalize-space(*:field[@*:index=5]),'00')"
+        },
+        "freeFormDescription": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=3])"
+        },
+        "testField": {
+          "sourcedFrom": ""
+        },
+        "documentPreparationTZ": {
+          "sourcedFrom": "memoryLookup(normalize-space(*:field[@*:index=6]),'{\"ET\":\"EST\",\"CT\":\"CST\",\"PT\":\"PST\",\"MT\":\"MST\"}')"
+        }
+      },
+      "targetEntityType": "#/definitions/ExtendedReference"
+    },
+    "ShipmentInformation": {
+      "sourcedFrom": "//*:edi-document/*:segments/*:segment[normalize-space(*:segment-identifier/text())='BX']/*:fields",
+      "properties": {
+        "transactionSetPurposeCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=1])"
+        },
+        "transportationMethodTypeCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=2])"
+        },
+        "shipmentMethodOfPaymentCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=3])"
+        },
+        "shipmentIdentificationNumber": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=4])"
+        },
+        "standardCarrierAlphaCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=5])"
+        },
+        "weightUnitCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=6])"
+        },
+        "shipmentQualifier": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=7])"
+        },
+        "sectionSevenCode": {
+          "sourcedFrom": "normalize-space(*:field[@*:index=8])"
+        }
+      },
+      "targetEntityType": "#/definitions/GeneralShipmentInformation"
+    },
+    "URI": {
+      "sourcedFrom": "$URI"
+    }
+  },
+  "uriExpression": "$URI"
+}

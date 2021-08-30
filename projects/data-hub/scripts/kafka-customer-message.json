@@ -1,0 +1,48 @@
+{
+    "records": [
+        {
+            "key": "customer_key1",
+            "value": {
+                "id": "83-830-8521",
+                "first_name": "Sawyere",
+                "last_name": "McNay",
+                "email": "smcnay1@nyu.edu",
+                "gender": "Male",
+                "addressLine1": "4278 Carpenter Circle",
+                "addressLine2": null,
+                "city": "Colorado Springs",
+                "state": "Colorado",
+                "zip": "80920",
+                "ssn": "803-63-8396",
+                "mobile": "719-354-9420",
+                "phone": "843-426-4831",
+                "dob": "1956-11-02",
+                "products_purchased" : 2,
+                "complains" : 0,
+                "money_spent" : 1123
+            }
+        },
+        {
+            "key": "customer_key1",
+            "value": {
+                "id": "98-237-2999",
+                "first_name": "Georg",
+                "last_name": "Cowin",
+                "email": "gcowin0@arstechnica.com",
+                "gender": "Polygender",
+                "addressLine1": "36 Mcbride Circle",
+                "addressLine2": null,
+                "city": "Jeffersonville",
+                "state": "Indiana",
+                "zip": "47134",
+                "ssn": "413-58-8068",
+                "mobile": "812-662-8876",
+                "phone": "954-353-4736",
+                "dob": "1939-09-16",
+                "products_purchased" : 8,
+                "complains" : 1,
+                "money_spent" : 1844
+            }
+        }
+    ]
+}

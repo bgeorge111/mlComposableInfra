@@ -1,0 +1,95 @@
+{
+  "collections": [
+    "Map_Nifi_Customer",
+    "Customer"
+  ],
+  "additionalCollections": [ ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": 100,
+  "validateEntity": "doNotValidate",
+  "targetFormat": "JSON",
+  "attachSourceDocument": false,
+  "name": "Map_Nifi_Customer",
+  "targetEntityType": "http://example.org/Customer-1.0.0/Customer",
+  "description": "Map Nifi Customers",
+  "collection": "customers-nifi",
+  "selectedSource": "collection",
+  "sourceQuery": "cts.collectionQuery(['customers-nifi'])",
+  "targetDatabase": "data-hub-FINAL",
+  "headers": { },
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "sourceDatabase": "data-hub-STAGING",
+  "stepDefinitionName": "entity-services-mapping",
+  "stepDefinitionType": "mapping",
+  "stepId": "Map_Nifi_Customer-mapping",
+  "acceptsBatch": true,
+  "lastUpdated": "2021-08-18T01:42:28.154209Z",
+  "uriExpression": "concat('/customers/',customer/id)",
+  "properties": {
+    "firstName": {
+      "sourcedFrom": "customer/first_name"
+    },
+    "lastName": {
+      "sourcedFrom": "customer/last_name"
+    },
+    "addresses": {
+      "sourcedFrom": "customer/addresses",
+      "properties": {
+        "type": {
+          "sourcedFrom": "address/type"
+        },
+        "line1": {
+          "sourcedFrom": "address/line1"
+        },
+        "line2": {
+          "sourcedFrom": "address/line2"
+        },
+        "city": {
+          "sourcedFrom": "address/city"
+        },
+        "state": {
+          "sourcedFrom": "address/state"
+        },
+        "zip": {
+          "sourcedFrom": "address/zip"
+        }
+      },
+      "targetEntityType": "#/definitions/Address"
+    },
+    "communication": {
+      "sourcedFrom": "/",
+      "properties": {
+        "email": {
+          "sourcedFrom": "customer/email"
+        },
+        "mobile": {
+          "sourcedFrom": "customer/mobile"
+        },
+        "phone": {
+          "sourcedFrom": "customer/phone"
+        }
+      },
+      "targetEntityType": "#/definitions/Communication"
+    },
+    "ssn": {
+      "sourcedFrom": "customer/ssn"
+    },
+    "gender": {
+      "sourcedFrom": "customer/gender"
+    },
+    "dob": {
+      "sourcedFrom": "customer/dob"
+    },
+    "id": {
+      "sourcedFrom": "customer/id"
+    },
+    "updateTs": {
+      "sourcedFrom": "current-dateTime()"
+    },
+    "source": {
+      "sourcedFrom": "'NIFI'"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+    "users": [
+        {
+            "name": "guest",
+            "password_hash": "wneBM8Sc50to9EM3ReMds2fIkgxkgDqnHmv+YvZmRy3euMzt",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator",
+            "limits": {}
+        }
+    ],
+    "vhosts": [
+        {
+            "name": "/"
+        }
+    ],
+    "permissions": [
+        {
+            "user": "guest",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        }
+    ],
+    "queues": [
+        {
+            "name": "default-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        },
+		{
+            "name": "customer-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        },
+        {
+            "name": "events-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        }
+    ],
+    "exchanges": [
+        {
+            "name": "default-exchange",
+            "vhost": "/",
+            "type": "direct",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+		{
+            "name": "events-exchange",
+            "vhost": "/",
+            "type": "direct",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "customer-exchange",
+            "vhost": "/",
+            "type": "direct",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        }
+    ],
+    "bindings": [
+        {
+            "source": "default-exchange",
+            "vhost": "/",
+            "destination": "default-queue",
+            "destination_type": "queue",
+            "routing_key": "default-key",
+            "arguments": {}
+        },
+		{
+            "source": "customer-exchange",
+            "vhost": "/",
+            "destination": "customer-queue",
+            "destination_type": "queue",
+            "routing_key": "customer-key",
+            "arguments": {}
+        },
+        {
+            "source": "events-exchange",
+            "vhost": "/",
+            "destination": "events-queue",
+            "destination_type": "queue",
+            "routing_key": "event-key",
+            "arguments": {}
+        }
+    ]
+}

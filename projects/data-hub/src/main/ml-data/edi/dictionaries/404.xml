@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edi-404>
+<dict Segment="ST" Description="Transaction Set Header"/>
+<dict Segment="ZC1" Description="Beginning Segment For Data Correction Or Change"/>
+<dict Segment="BX" Description="General Shipment Information"/>
+<dict Segment="BNX" Description="Rail Shipment Information"/>
+<dict Segment="M3" Description="Release "/>
+<dict Segment="N9" Description="Reference Identification"/>
+<dict Segment="CM" Description="Cargo Manifest"/>
+<dict Segment="DTM" Description="Date/Time Reference"/>
+<dict Segment="N7" Description="Loop Equipment Details"/>
+<dict Segment="N7" Description="Equipment Details"/>
+<dict Segment="VC" Description="Loop Motor Vehicle Control"/>
+<dict Segment="VC" Description="Motor Vehicle Control "/>
+<dict Segment="M7" Description="Seal Numbers"/>
+<dict Segment="M12" Description="In-bond Identifying Information"/>
+<dict Segment="GA" Description="Canadian Grain Information"/>
+<dict Segment="REF" Description="Loop Reference Identification"/>
+<dict Segment="REF" Description="Reference Identification"/>
+<dict Segment="N9" Description="Reference Identification"/>
+<dict Segment="N10" Description="Quantity and Description "/>
+<dict Segment="N1" Description="Loop Name "/>
+<dict Segment="N1" Description="Name"/>
+<dict Segment="N3" Description="Address Information"/>
+<dict Segment="N4" Description="Geographic Location "/>
+<dict Segment="F9" Description="Origin Station"/>
+<dict Segment="D9" Description="Destination Station"/>
+<dict Segment="N1" Description="Loop Name "/>
+<dict Segment="N1" Description="Name"/>
+<dict Segment="N2" Description="Additional Name Information "/>
+<dict Segment="N3" Description="Address Information"/>
+<dict Segment="N4" Description="Geographic Location "/>
+<dict Segment="PER" Description="Administrative Communications Contact"/>
+<dict Segment="R2" Description="Route Information "/>
+<dict Segment="E1" Description="Loop Empty Car Disposition - Pended Destination Consignee "/>
+<dict Segment="E1" Description="Empty Car Disposition - Pended Destination Consignee"/>
+<dict Segment="E4" Description="Empty Car Disposition - Pended Destination City "/>
+<dict Segment="E5" Description="Empty Car Disposition - Pended Destination Route"/>
+<dict Segment="H3" Description="Special Handling Instructions "/>
+<dict Segment="PS" Description="Protective Service Instructions"/>
+<dict Segment="LX" Description="Loop Assigned Number"/>
+<dict Segment="LX" Description="Assigned Number "/>
+<dict Segment="L5" Description="Description,Marks and Numbers"/>
+<dict Segment="L0" Description="Loop Line Item - Quantity and Weight"/>
+<dict Segment="L0" Description="Line Item - Quantity and Weight"/>
+<dict Segment="L1" Description="Rate and Charges"/>
+<dict Segment="PI" Description="Price Authority Identification"/>
+<dict Segment="X1" Description="Export License"/>
+<dict Segment="LS" Description="Loop Loop Header"/>
+<dict Segment="LS" Description="Loop Header"/>
+<dict Segment="LH1" Description="Loop Hazardous Identification Information"/>
+<dict Segment="LH1" Description="Hazardous Identification Information "/>
+<dict Segment="LH2" Description="Hazardous Classification Information"/>
+<dict Segment="LH3" Description="Hazardous Material Shipping Name "/>
+<dict Segment="LFH" Description="Freeform Hazardous Material Information"/>
+<dict Segment="LEP" Description="EPA Required Data"/>
+<dict Segment="LH4" Description="Canadian Dangerous Requirements"/>
+<dict Segment="LHT" Description="Transborder Hazardous Requirements "/>
+<dict Segment="LHR" Description="Hazardous Material Identifying Reference Numbers "/>
+<dict Segment="PER" Description="Administrative Communications Contact"/>
+<dict Segment="N1" Description="Loop Party Identification"/>
+<dict Segment="N1" Description="Party Identification"/>
+<dict Segment="N3" Description="Party Location"/>
+<dict Segment="N4" Description="Geographic Location "/>
+<dict Segment="PER" Description="Administrative Communications Contact"/>
+<dict Segment="LE" Description="Loop Trailer"/>
+<dict Segment="PER" Description="Administrative Communications Contact"/>
+<dict Segment="LHR" Description="Hazardous Material Identifying Reference Numbers "/>
+<dict Segment="LH6" Description="Hazardous Certification"/>
+<dict Segment="XH" Description="Pro Forma - B13 Information"/>
+<dict Segment="X7" Description="Customs Information "/>
+<dict Segment="SE" Description="Transaction Set Trailer"/>
+</edi-404>

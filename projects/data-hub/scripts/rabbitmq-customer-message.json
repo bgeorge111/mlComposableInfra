@@ -1,0 +1,26 @@
+{
+    "properties": {
+        "delivery_mode": 2
+    },
+    "routing_key": "customer-key",
+    "payload": "  <customer>
+    <id>RABBITMQ_KEY1</id>
+    <first_name>Danit</first_name>
+    <last_name>Gage</last_name>
+    <email>dgage14@mediafire.com</email>
+    <gender>Female</gender>
+    <addressLine1>999 Derek Circle</addressLine1>
+    <addressLine2></addressLine2>
+    <city>Palmdale</city>
+    <state>California</state>
+    <zip>93591</zip>
+    <ssn>472-38-3635</ssn>
+    <mobile>661-615-7429</mobile>
+    <phone>626-883-4246</phone>
+    <dob>1960-03-12</dob>
+    <products_purchased>17</products_purchased>
+    <complains>2</complains>
+    <money_spent>2911.78</money_spent>
+  </customer>",
+    "payload_encoding": "string"
+}

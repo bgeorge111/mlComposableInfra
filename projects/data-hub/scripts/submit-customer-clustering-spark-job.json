@@ -1,0 +1,27 @@
+{
+    "appResource": "/tmp/spark-test-project-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
+    "sparkProperties": {
+        "spark.executor.extraClassPath": "/tmp/marklogic-data-hub-spark-connector-1.0.0-all.jar",
+        "spark.driver.extraClassPath": "/tmp/marklogic-data-hub-spark-connector-1.0.0-all.jar",
+        "spark.executor.memory": "1g",
+        "spark.master": "spark://spark-master:7077",
+        "spark.driver.memory": "1g",
+        "spark.driver.cores": "1",
+        "spark.eventLog.enabled": "false",
+        "spark.app.name": "Spark REST API - PI",
+        "spark.submit.deployMode": "cluster",
+        "spark.jars": "/tmp/spark-test-project-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
+        "spark.driver.supervise": "true"
+    },
+    "clientSparkVersion": "2.4.6",
+    "mainClass": "org.example.ReadCustomersFromFinal",
+    "action": "CreateSubmissionRequest",
+    "environmentVariables": {
+        "SPARK_ENV_LOADED": "1"
+    },
+    "appArgs": [
+        "marklogic1",
+        "hc-default",
+        "MarkLogic*001"
+    ]
+}

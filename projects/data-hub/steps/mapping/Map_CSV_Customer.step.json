@@ -1,0 +1,104 @@
+{
+  "collections": [
+    "Map_CSV_Customer",
+    "Customer"
+  ],
+  "additionalCollections": [ ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": 100,
+  "validateEntity": "doNotValidate",
+  "targetFormat": "JSON",
+  "attachSourceDocument": false,
+  "name": "Map_CSV_Customer",
+  "targetEntityType": "http://example.org/Customer-1.0.0/Customer",
+  "description": "Map CSV Customers",
+  "collection": "csv-customers",
+  "selectedSource": "collection",
+  "sourceQuery": "cts.collectionQuery(['csv-customers'])",
+  "targetDatabase": "data-hub-FINAL",
+  "headers": { },
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "sourceDatabase": "data-hub-STAGING",
+  "stepDefinitionName": "entity-services-mapping",
+  "stepDefinitionType": "mapping",
+  "stepId": "Map_CSV_Customer-mapping",
+  "acceptsBatch": true,
+  "lastUpdated": "2021-08-18T01:42:27.689857Z",
+  "properties": {
+    "firstName": {
+      "sourcedFrom": "first_name"
+    },
+    "lastName": {
+      "sourcedFrom": "last_name"
+    },
+    "addresses": {
+      "sourcedFrom": "/",
+      "properties": {
+        "line1": {
+          "sourcedFrom": "addressLine1"
+        },
+        "line2": {
+          "sourcedFrom": "addressLine2"
+        },
+        "city": {
+          "sourcedFrom": "city"
+        },
+        "state": {
+          "sourcedFrom": "state"
+        },
+        "zip": {
+          "sourcedFrom": "zip"
+        },
+        "type": {
+          "sourcedFrom": "\"Current\""
+        }
+      },
+      "targetEntityType": "#/definitions/Address"
+    },
+    "communication": {
+      "sourcedFrom": "/",
+      "properties": {
+        "email": {
+          "sourcedFrom": "email"
+        },
+        "mobile": {
+          "sourcedFrom": "mobile"
+        },
+        "phone": {
+          "sourcedFrom": "phone"
+        }
+      },
+      "targetEntityType": "#/definitions/Communication"
+    },
+    "ssn": {
+      "sourcedFrom": "ssn"
+    },
+    "gender": {
+      "sourcedFrom": "gender"
+    },
+    "dob": {
+      "sourcedFrom": "dob"
+    },
+    "id": {
+      "sourcedFrom": "id"
+    },
+    "updateTs": {
+      "sourcedFrom": "current-dateTime()"
+    },
+    "source": {
+      "sourcedFrom": "'CSV'"
+    },
+    "productsPurchased": {
+      "sourcedFrom": "products_purchased"
+    },
+    "complains": {
+      "sourcedFrom": "complains"
+    },
+    "moneySpent": {
+      "sourcedFrom": "round(money_spent)"
+    }
+  },
+  "uriExpression": "concat('/customers/',id)"
+}

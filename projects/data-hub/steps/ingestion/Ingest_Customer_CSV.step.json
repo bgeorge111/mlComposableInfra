@@ -1,0 +1,27 @@
+{
+  "headers": { },
+  "collections": [
+    "Ingest_Customer_CSV"
+  ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": 100,
+  "name": "Ingest_Customer_CSV",
+  "description": "Ingest Customer CSV",
+  "sourceFormat": "csv",
+  "separator": ",",
+  "targetFormat": "JSON",
+  "sourceName": "csv-customers",
+  "sourceType": "csv-customers",
+  "outputURIPrefix": "/customers/csv/",
+  "additionalCollections": [
+    "csv-customers"
+  ],
+  "targetDatabase": "data-hub-STAGING",
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "stepDefinitionName": "default-ingestion",
+  "stepDefinitionType": "ingestion",
+  "stepId": "Ingest_Customer_CSV-ingestion",
+  "lastUpdated": "2021-08-18T01:42:27.657575Z"
+}

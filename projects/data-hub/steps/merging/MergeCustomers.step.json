@@ -1,0 +1,50 @@
+{
+  "batchSize": 100,
+  "sourceDatabase": "data-hub-FINAL",
+  "targetDatabase": "data-hub-FINAL",
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "targetEntityType": "Customer",
+  "sourceQuery": "cts.collectionQuery(['MatchCustomer'])",
+  "provenanceGranularityLevel": "off",
+  "collections": [
+    "MergeCustomers"
+  ],
+  "targetFormat": "JSON",
+  "mergeRules": [ ],
+  "mergeStrategies": [
+    {
+      "strategyName": "Default Strategy ",
+      "maxSources": "1",
+      "maxValues": "1",
+      "priorityOrder": {
+        "sources": [ ]
+      },
+      "default": true
+    },
+    {
+      "strategyName": "Source Strategy",
+      "maxSources": "1",
+      "maxValues": "1",
+      "priorityOrder": {
+        "sources": [ ]
+      },
+      "default": false
+    }
+  ],
+  "targetCollections": null,
+  "name": "MergeCustomers",
+  "description": "Merge Customers",
+  "collection": "MatchCustomer",
+  "selectedSource": "collection",
+  "timestamp": "/updateTs",
+  "additionalCollections": [ ],
+  "headers": { },
+  "interceptors": [ ],
+  "customHook": { },
+  "stepDefinitionName": "default-merging",
+  "stepDefinitionType": "merging",
+  "stepId": "MergeCustomers-merging",
+  "acceptsBatch": false,
+  "stepUpdate": false,
+  "lastUpdated": "2021-08-18T01:42:28.298038Z"
+}

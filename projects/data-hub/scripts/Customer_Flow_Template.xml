@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template encoding-version="1.3">
+    <description>Template for Customer Flow</description>
+    <groupId>d01631cf-017a-1000-29f1-087935ab06b0</groupId>
+    <name>Customer_Flow_Template</name>
+    <snippet>
+        <controllerServices>
+            <id>0eb064be-f910-3cbb-0000-000000000000</id>
+            <parentGroupId>ecf69422-1dea-3384-0000-000000000000</parentGroupId>
+            <bundle>
+                <artifact>nifi-marklogic-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.9.1.6</version>
+            </bundle>
+            <comments></comments>
+            <descriptors>
+                <entry>
+                    <key>Host</key>
+                    <value>
+                        <name>Host</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Port</key>
+                    <value>
+                        <name>Port</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Load Balancer</key>
+                    <value>
+                        <name>Load Balancer</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Security Context Type</key>
+                    <value>
+                        <name>Security Context Type</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Username</key>
+                    <value>
+                        <name>Username</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Password</key>
+                    <value>
+                        <name>Password</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Database</key>
+                    <value>
+                        <name>Database</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>External name</key>
+                    <value>
+                        <name>External name</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>SSL Context Service</key>
+                    <value>
+                        <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+                        <name>SSL Context Service</name>
+                    </value>
+                </entry>
+                <entry>
+                    <key>Client Authentication</key>
+                    <value>
+                        <name>Client Authentication</name>
+                    </value>
+                </entry>
+            </descriptors>
+            <name>MarkLogic_STAGING_Service</name>
+            <persistsState>false</persistsState>
+            <properties>
+                <entry>
+                    <key>Host</key>
+                    <value>marklogic1</value>
+                </entry>
+                <entry>
+                    <key>Port</key>
+                    <value>8010</value>
+                </entry>
+                <entry>
+                    <key>Load Balancer</key>
+                    <value>false</value>
+                </entry>
+                <entry>
+                    <key>Security Context Type</key>
+                    <value>DIGEST</value>
+                </entry>
+                <entry>
+                    <key>Username</key>
+                    <value>hc-default</value>
+                </entry>
+                <entry>
+                    <key>Password</key>
+                </entry>
+                <entry>
+                    <key>Database</key>
+                    <value>data-hub-STAGING</value>
+                </entry>
+                <entry>
+                    <key>External name</key>
+                </entry>
+                <entry>
+                    <key>SSL Context Service</key>
+                </entry>
+                <entry>
+                    <key>Client Authentication</key>
+                </entry>
+            </properties>
+            <state>ENABLED</state>
+            <type>org.apache.nifi.marklogic.controller.DefaultMarkLogicDatabaseClientService</type>
+        </controllerServices>
+        <processGroups>
+            <id>90102ade-0800-30eb-0000-000000000000</id>
+            <parentGroupId>ecf69422-1dea-3384-0000-000000000000</parentGroupId>
+            <position>
+                <x>0.0</x>
+                <y>0.0</y>
+            </position>
+            <comments></comments>
+            <contents>
+                <connections>
+                    <id>5e10f689-63cc-365b-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>19f949e9-fd7b-3f96-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>8aa478a0-5c3d-33bc-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>884a800c-864f-3148-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>524c41ac-42cc-3583-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>batch_success</selectedRelationships>
+                    <source>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>19f949e9-fd7b-3f96-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>c50708a0-3424-35af-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>4f0261df-cb8e-3a91-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>duplicate_uri</selectedRelationships>
+                    <source>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>19f949e9-fd7b-3f96-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>cf27b16e-bc0a-3340-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>7ca79673-b18d-353a-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>finished</selectedRelationships>
+                    <source>
+                        <groupId>90102ade-0800-30eb-0000-000000000000</groupId>
+                        <id>524c41ac-42cc-3583-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <processors>
+                    <id>19f949e9-fd7b-3f96-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1218.0</x>
+                        <y>285.0138854980469</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-marklogic-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.9.1.6</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>DatabaseClient Service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.marklogic.controller.MarkLogicDatabaseClientService</identifiesControllerService>
+    <name>DatabaseClient Service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Batch Size</key>
+<value>
+    <name>Batch Size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Thread Count</key>
+<value>
+    <name>Thread Count</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Collections</key>
+<value>
+    <name>Collections</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Format</key>
+<value>
+    <name>Format</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Job ID</key>
+<value>
+    <name>Job ID</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Job Name</key>
+<value>
+    <name>Job Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>MIME type</key>
+<value>
+    <name>MIME type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Permissions</key>
+<value>
+    <name>Permissions</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Server Transform</key>
+<value>
+    <name>Server Transform</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Temporal Collection</key>
+<value>
+    <name>Temporal Collection</name>
+</value>
+                            </entry>
+                            <entry>
+<key>URI Attribute Name</key>
+<value>
+    <name>URI Attribute Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>URI Prefix</key>
+<value>
+    <name>URI Prefix</name>
+</value>
+                            </entry>
+                            <entry>
+<key>URI Suffix</key>
+<value>
+    <name>URI Suffix</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Duplicate URI Handling</key>
+<value>
+    <name>Duplicate URI Handling</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>DatabaseClient Service</key>
+<value>0eb064be-f910-3cbb-0000-000000000000</value>
+                            </entry>
+                            <entry>
+<key>Batch Size</key>
+<value>10</value>
+                            </entry>
+                            <entry>
+<key>Thread Count</key>
+<value>10</value>
+                            </entry>
+                            <entry>
+<key>Collections</key>
+<value>customers-nifi</value>
+                            </entry>
+                            <entry>
+<key>Format</key>
+<value>XML</value>
+                            </entry>
+                            <entry>
+<key>Job ID</key>
+                            </entry>
+                            <entry>
+<key>Job Name</key>
+                            </entry>
+                            <entry>
+<key>MIME type</key>
+                            </entry>
+                            <entry>
+<key>Permissions</key>
+<value>data-hub-operator,read,data-hub-operator,update</value>
+                            </entry>
+                            <entry>
+<key>Server Transform</key>
+                            </entry>
+                            <entry>
+<key>Temporal Collection</key>
+                            </entry>
+                            <entry>
+<key>URI Attribute Name</key>
+<value>uuid</value>
+                            </entry>
+                            <entry>
+<key>URI Prefix</key>
+<value>/customers/nifi/</value>
+                            </entry>
+                            <entry>
+<key>URI Suffix</key>
+<value>.xml</value>
+                            </entry>
+                            <entry>
+<key>Duplicate URI Handling</key>
+<value>IGNORE</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>Add message to STAGING </name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>batch_success</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>duplicate_uri</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style>
+                        <entry>
+                            <key>background-color</key>
+                            <value>#f52323</value>
+                        </entry>
+                    </style>
+                    <type>org.apache.nifi.marklogic.processor.PutMarkLogic</type>
+                </processors>
+                <processors>
+                    <id>4f0261df-cb8e-3a91-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1818.0</x>
+                        <y>277.0138854980469</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.14.0</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Log Level</key>
+<value>
+    <name>Log Level</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Log Payload</key>
+<value>
+    <name>Log Payload</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Log</key>
+<value>
+    <name>Attributes to Log</name>
+</value>
+                            </entry>
+                            <entry>
+<key>attributes-to-log-regex</key>
+<value>
+    <name>attributes-to-log-regex</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Ignore</key>
+<value>
+    <name>Attributes to Ignore</name>
+</value>
+                            </entry>
+                            <entry>
+<key>attributes-to-ignore-regex</key>
+<value>
+    <name>attributes-to-ignore-regex</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Log prefix</key>
+<value>
+    <name>Log prefix</name>
+</value>
+                            </entry>
+                            <entry>
+<key>character-set</key>
+<value>
+    <name>character-set</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Log Level</key>
+<value>info</value>
+                            </entry>
+                            <entry>
+<key>Log Payload</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Log</key>
+                            </entry>
+                            <entry>
+<key>attributes-to-log-regex</key>
+<value>.*</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Ignore</key>
+                            </entry>
+                            <entry>
+<key>attributes-to-ignore-regex</key>
+                            </entry>
+                            <entry>
+<key>Log prefix</key>
+                            </entry>
+                            <entry>
+<key>character-set</key>
+<value>UTF-8</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>LogAttribute</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.LogAttribute</type>
+                </processors>
+                <processors>
+                    <id>524c41ac-42cc-3583-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1218.0</x>
+                        <y>549.0138854980469</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-marklogic-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.9.1.6</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>DatabaseClient Service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.marklogic.controller.MarkLogicDatabaseClientService</identifiesControllerService>
+    <name>DatabaseClient Service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Final Server Port</key>
+<value>
+    <name>Final Server Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Job Server Port</key>
+<value>
+    <name>Job Server Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Flow Name</key>
+<value>
+    <name>Flow Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Steps</key>
+<value>
+    <name>Steps</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Job ID</key>
+<value>
+    <name>Job ID</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Options JSON</key>
+<value>
+    <name>Options JSON</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>DatabaseClient Service</key>
+<value>0eb064be-f910-3cbb-0000-000000000000</value>
+                            </entry>
+                            <entry>
+<key>Final Server Port</key>
+<value>8011</value>
+                            </entry>
+                            <entry>
+<key>Job Server Port</key>
+<value>8013</value>
+                            </entry>
+                            <entry>
+<key>Flow Name</key>
+<value>Customer_Flow</value>
+                            </entry>
+                            <entry>
+<key>Steps</key>
+<value>3</value>
+                            </entry>
+                            <entry>
+<key>Job ID</key>
+                            </entry>
+                            <entry>
+<key>Options JSON</key>
+<value>{"sourceQuery": "cts.documentQuery(${optionsJson:jsonPath('$.uris'):escapeJson()})"}</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>RunFlowMarkLogic</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>finished</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.marklogic.processor.RunFlowMarkLogic</type>
+                </processors>
+                <processors>
+                    <id>7ca79673-b18d-353a-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1818.0</x>
+                        <y>533.0138854980469</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-amqp-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.14.0</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Exchange Name</key>
+<value>
+    <name>Exchange Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Routing Key</key>
+<value>
+    <name>Routing Key</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Brokers</key>
+<value>
+    <name>Brokers</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Host Name</key>
+<value>
+    <name>Host Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>
+    <name>Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Virtual Host</key>
+<value>
+    <name>Virtual Host</name>
+</value>
+                            </entry>
+                            <entry>
+<key>User Name</key>
+<value>
+    <name>User Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+<value>
+    <name>Password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>AMQP Version</key>
+<value>
+    <name>AMQP Version</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ssl-context-service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+    <name>ssl-context-service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>cert-authentication</key>
+<value>
+    <name>cert-authentication</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ssl-client-auth</key>
+<value>
+    <name>ssl-client-auth</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Exchange Name</key>
+<value>default-exchange</value>
+                            </entry>
+                            <entry>
+<key>Routing Key</key>
+<value>default-key</value>
+                            </entry>
+                            <entry>
+<key>Brokers</key>
+                            </entry>
+                            <entry>
+<key>Host Name</key>
+<value>rabbitmq</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>5672</value>
+                            </entry>
+                            <entry>
+<key>Virtual Host</key>
+<value>/</value>
+                            </entry>
+                            <entry>
+<key>User Name</key>
+<value>guest</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+                            </entry>
+                            <entry>
+<key>AMQP Version</key>
+<value>0.9.1</value>
+                            </entry>
+                            <entry>
+<key>ssl-context-service</key>
+                            </entry>
+                            <entry>
+<key>cert-authentication</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>ssl-client-auth</key>
+<value>NONE</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>PublishAMQP</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.amqp.processors.PublishAMQP</type>
+                </processors>
+                <processors>
+                    <id>8aa478a0-5c3d-33bc-0000-000000000000</id>
+                    <parentGroupId>90102ade-0800-30eb-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>546.0</x>
+                        <y>293.0138854980469</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-amqp-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.14.0</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Queue</key>
+<value>
+    <name>Queue</name>
+</value>
+                            </entry>
+                            <entry>
+<key>auto.acknowledge</key>
+<value>
+    <name>auto.acknowledge</name>
+</value>
+                            </entry>
+                            <entry>
+<key>batch.size</key>
+<value>
+    <name>batch.size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Brokers</key>
+<value>
+    <name>Brokers</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Host Name</key>
+<value>
+    <name>Host Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>
+    <name>Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Virtual Host</key>
+<value>
+    <name>Virtual Host</name>
+</value>
+                            </entry>
+                            <entry>
+<key>User Name</key>
+<value>
+    <name>User Name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+<value>
+    <name>Password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>AMQP Version</key>
+<value>
+    <name>AMQP Version</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ssl-context-service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+    <name>ssl-context-service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>cert-authentication</key>
+<value>
+    <name>cert-authentication</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ssl-client-auth</key>
+<value>
+    <name>ssl-client-auth</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Queue</key>
+<value>customer-queue</value>
+                            </entry>
+                            <entry>
+<key>auto.acknowledge</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>batch.size</key>
+<value>10</value>
+                            </entry>
+                            <entry>
+<key>Brokers</key>
+                            </entry>
+                            <entry>
+<key>Host Name</key>
+<value>rabbitmq</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>5672</value>
+                            </entry>
+                            <entry>
+<key>Virtual Host</key>
+<value>/</value>
+                            </entry>
+                            <entry>
+<key>User Name</key>
+<value>guest</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+                            </entry>
+                            <entry>
+<key>AMQP Version</key>
+<value>0.9.1</value>
+                            </entry>
+                            <entry>
+<key>ssl-context-service</key>
+                            </entry>
+                            <entry>
+<key>cert-authentication</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>ssl-client-auth</key>
+<value>NONE</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>Consume from RabbitMQ</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style>
+                        <entry>
+                            <key>background-color</key>
+                            <value>#4a5ce6</value>
+                        </entry>
+                    </style>
+                    <type>org.apache.nifi.amqp.processors.ConsumeAMQP</type>
+                </processors>
+            </contents>
+            <defaultBackPressureDataSizeThreshold>1 GB</defaultBackPressureDataSizeThreshold>
+            <defaultBackPressureObjectThreshold>10000</defaultBackPressureObjectThreshold>
+            <defaultFlowFileExpiration>0 sec</defaultFlowFileExpiration>
+            <flowfileConcurrency>UNBOUNDED</flowfileConcurrency>
+            <flowfileOutboundPolicy>STREAM_WHEN_AVAILABLE</flowfileOutboundPolicy>
+            <name>Customer_Flow_Process_Group</name>
+            <variables/>
+        </processGroups>
+    </snippet>
+    <timestamp>07/23/2021 11:47:08 UTC</timestamp>
+</template>

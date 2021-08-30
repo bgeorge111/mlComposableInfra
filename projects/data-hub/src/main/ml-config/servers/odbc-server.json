@@ -1,0 +1,9 @@
+{
+  "server-name": "data-hub-odbc",
+  "server-type": "odbc",
+  "root": "/",
+  "group-name": "%%GROUP%%",
+  "port": "8015",
+  "modules-database": "%%mlModulesDbName%%",
+  "content-database": "%%mlFinalDbName%%"
+}

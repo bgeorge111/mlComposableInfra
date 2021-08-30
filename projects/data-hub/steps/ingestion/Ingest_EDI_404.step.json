@@ -1,0 +1,24 @@
+{
+  "headers": { },
+  "collections": [
+    "Ingest_EDI_404"
+  ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": 100,
+  "name": "Ingest_EDI_404",
+  "description": "Ingest EDI 404 Raw Documents",
+  "sourceFormat": "text",
+  "targetFormat": "text",
+  "sourceName": "",
+  "sourceType": "",
+  "outputURIPrefix": "/edi/404/raw",
+  "additionalCollections": [ ],
+  "targetDatabase": "data-hub-STAGING",
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "stepDefinitionName": "default-ingestion",
+  "stepDefinitionType": "ingestion",
+  "stepId": "Ingest_EDI_404-ingestion",
+  "lastUpdated": "2021-08-18T15:44:44.477664Z"
+}

@@ -1,0 +1,69 @@
+{
+  "batchSize": 100,
+  "sourceDatabase": "data-hub-FINAL",
+  "targetDatabase": "data-hub-FINAL",
+  "targetEntityType": "Customer",
+  "sourceQuery": "cts.collectionQuery(['Customer'])",
+  "collections": [
+    "MatchCustomer"
+  ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "targetFormat": "JSON",
+  "matchRulesets": [
+    {
+      "name": "Customer Match Ruleset",
+      "weight": 100,
+      "reduce": false,
+      "matchRules": [
+        {
+          "entityPropertyPath": "lastName",
+          "matchType": "exact",
+          "options": { }
+        },
+        {
+          "entityPropertyPath": "addresses.state",
+          "matchType": "exact",
+          "options": { }
+        },
+        {
+          "entityPropertyPath": "addresses.zip",
+          "matchType": "zip",
+          "options": { }
+        },
+        {
+          "entityPropertyPath": "ssn",
+          "matchType": "exact",
+          "options": { }
+        }
+      ],
+      "rulesetType": "multiple"
+    }
+  ],
+  "thresholds": [
+    {
+      "thresholdName": "AutoMerge",
+      "action": "merge",
+      "score": 80
+    },
+    {
+      "thresholdName": "Notify",
+      "action": "notify",
+      "score": 51
+    }
+  ],
+  "name": "MatchCustomer",
+  "description": "Match Customer Documents",
+  "collection": "Customer",
+  "selectedSource": "collection",
+  "additionalCollections": [ ],
+  "headers": { },
+  "interceptors": [ ],
+  "provenanceGranularityLevel": "off",
+  "customHook": { },
+  "stepDefinitionName": "default-matching",
+  "stepDefinitionType": "matching",
+  "stepId": "MatchCustomer-matching",
+  "acceptsBatch": true,
+  "stepUpdate": false,
+  "lastUpdated": "2021-08-18T01:42:28.272407Z"
+}

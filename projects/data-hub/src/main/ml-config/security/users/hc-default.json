@@ -1,0 +1,5 @@
+{"user-name":"hc-default", 
+     "description": "Hub Central Default user",
+	 "password": "MarkLogic*001",
+     "role": [ "data-hub-operator", "hub-central-developer", "ort-user","qconsole-user","pii-reader" ] 
+    }

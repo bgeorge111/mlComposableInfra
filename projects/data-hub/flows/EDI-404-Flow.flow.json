@@ -1,0 +1,13 @@
+{
+  "name": "EDI-404-Flow",
+  "steps": {
+    "1": {
+      "stepId": "Ingest_EDI_404-ingestion"
+    },
+    "2": {
+      "stepId": "EDI-404-Map-mapping"
+    }
+  },
+  "description": "EDI 404 Flow",
+  "lastUpdated": "2021-08-18T16:36:28.475112Z"
+}
